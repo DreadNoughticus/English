@@ -1,0 +1,322 @@
+/* ==============================
+   Fonts
+============================== */
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Major+Mono+Display&family=Syne+Mono&display=swap');
+
+/* ==============================
+   Body
+============================== */
+body {
+    background-color: var(--bg0);
+}
+
+/* ==============================
+   Text Classes
+============================== */
+.dotted {
+    font-family: 'Doto', sans-serif;
+    color: var(--fg1);
+}
+
+h1 {
+    font-family: 'Major Mono Display', sans-serif;
+    font-weight: 100;
+    align-self: top;
+    justify-self: center;
+    color: var(--fg0);
+    font-size: 4em;
+    position: sticky;
+}
+
+.body {
+    justify-self: center;
+    font-family: 'Doto', sans-serif;
+    color: var(--fg1);
+    font-size: 1.2em;
+    max-width: 80%;
+}
+
+/* ==============================
+   Main Container
+============================== */
+.container {
+    display: grid;
+    grid-template-columns: 0.3fr 1.2fr 1.2fr 0.3fr;
+    grid-template-rows: 7.8fr;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: row;
+    gap: 10px 14px;
+    grid-template-areas: "stimulusTitle stimulusPoem myPoem myTitle";
+    border: 2px solid var(--green);
+    width: 60%;
+    justify-self: center;
+    align-self: center;
+    transition: all 0.6s ease-in-out;
+}
+
+.container:hover {
+    box-shadow: 0 0 0 10px var(--bg1);
+}
+
+/* Container children */
+.stimulusPoem {
+    grid-area: stimulusPoem;
+    align-self: center;
+    justify-self: center;
+    padding: 0.5em;
+    font-size: 0.9em;
+}
+
+.myPoem {
+    grid-area: myPoem;
+    align-self: center;
+    justify-self: center;
+    padding: 0.5em;
+}
+
+.stimulusTitle {
+    grid-area: stimulusTitle;
+    font-family: 'Major Mono Display', sans-serif;
+    font-weight: 80;
+    align-self: center;
+    justify-self: left;
+    padding: 0.5em;
+    color: var(--fg0);
+    font-size: 1.8em;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+}
+
+.myTitle {
+    grid-area: myTitle;
+    font-family: 'Major Mono Display', sans-serif;
+    font-weight: 80;
+    align-self: center;
+    justify-self: center;
+    color: var(--fg0);
+    font-size: 1.8em;
+    position: sticky;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    padding: 0.5em;
+}
+
+/* ==============================
+   Video
+============================== */
+video {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 2px solid var(--fg2);
+    display: block;
+    box-sizing: border-box;
+    transition: border-color 0.6s ease;
+}
+
+video.playing {
+    border-color: var(--green);
+}
+
+/* ==============================
+   Secondary Container
+============================== */
+.container2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.4fr 0.6fr;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: row;
+    gap: 10px 40px;
+    grid-template-areas: "video" "playback";
+    justify-self: center;
+    width: 60%;
+    margin: 3em;
+    border: 2px solid var(--red);
+    box-sizing: content-box;
+    transition: border-color 0.6s ease, box-shadow 0.6s ease;
+}
+
+.container2:hover {
+    box-shadow: 0 0 0 10px var(--bg1);
+}
+
+.container2.playing {
+    border-color: var(--green);
+}
+
+/* ==============================
+   Playback Controls
+============================== */
+.playback {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1.8fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "volume pauseplay speed"
+        "scrub scrub scrub"
+        "visualiserL download visualiserR";
+    grid-area: playback;
+}
+
+.pauseplay {
+    grid-area: pauseplay;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.volume      { grid-area: volume; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    padding-left: 2em;
+}
+.download    { grid-area: download; }
+.scrub       { grid-area: scrub; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column-reverse;
+    padding: 0em 2em 0em 2em;
+
+}
+.visualiserL { grid-area: visualiserL; }
+.visualiserR { grid-area: visualiserR; }
+.speed       { grid-area: speed; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column-reverse;
+    padding-right: 2em;
+}
+
+/* ==============================
+   Video Container
+============================== */
+.video {
+    grid-area: video;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+    max-width: 1000%;
+    aspect-ratio: 16/9;
+    padding: 10px;
+    box-sizing: content-box;
+}
+
+/* ==============================
+   Play Controls
+============================== */
+.playcontrol {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+    background-color: var(--bg0);
+    border: 2px solid var(--red);
+    aspect-ratio: 1/1;
+    height: 100%;
+    box-shadow: 0 0 0 0 var(--bg2);
+    transition: border-color 0.6s ease, box-shadow 0.6s ease;
+}
+
+.playcontrol:hover {
+    box-shadow: 0 0 0 6px var(--bg1);
+}
+
+.playcontrol:active {
+    box-shadow: 0 0 0 3px var(--bg3);
+}
+
+.playcontrol.playing {
+    border-color: var(--green);
+}
+
+/* ==============================
+   Play Rect (Animated Bars)
+============================== */
+.playrect {
+    width: 90%;
+    height: 10%;
+    background-color: var(--red);
+    transition: 
+        width 0.6s ease 0.6s,   /* staggered width */
+        height 0.6s ease,        /* staggered height */
+        background-color 0.6s ease; /* unified color speed */
+}
+
+.playrect.playing {
+    width: 13%;
+    height: 80%;
+    background-color: var(--green);
+    transition: 
+        height 0.6s ease 0.6s,   /* staggered width */
+        width 0.6s ease;        /* staggered height */
+}
+
+/* ==============================
+   Slider
+============================== */
+.slider {
+    position: relative;
+    width: 100%;
+    height: 10%;
+    background: var(--bg2);
+    border-radius: 0.1em;
+    cursor: pointer;
+}
+
+.slider-fill {
+    position: absolute;
+    height: 100%;
+    width: 0%; /* controlled by JS */
+    background: var(--red);
+    border-radius: 0.1em 0 0 0.1em;
+    transition: background-color 0.6s ease; /* width stagger stays, color unified */
+}
+
+.slider-fill.playing {
+    background-color: var(--green);
+}
+
+.slider-thumb {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: var(--bg0);
+    border-radius: 0%;
+    top: 50%;
+    left: 0; /* position controlled by JS */
+    transform: translate(-50%, -50%);
+    border: var(--red) solid 2px;
+    cursor: pointer;
+    transition: border 0.6s ease, box-shadow 0.6s ease; /* thumb moves staggered, color unified */
+}
+
+
+.slider-thumb.playing {
+    border: var(--green) solid 2px;
+}
+
+.slider-thumb:hover {
+    box-shadow: 0 0 0 3px var(--bg1);
+}
+
+.slider-thumb:active {
+    box-shadow: 0 0 0 1px var(--bg3);
+}
